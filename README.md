@@ -15,6 +15,21 @@ From a Ubuntu 16.04 server installation:
 	$ sudo /opt/pxe-scripts/install-dependencies.sh 
 	$ sudo /opt/pxe-scripts/launch-pxe.sh
 
+	# Add 32 bits Live CD files
+	$ sudo mkdir -p /mnt/mate-ubuntu32 
+	$ sudo mount -o loop ~/ubuntu-mate-16.04.1-desktop-i386.iso /mnt/mate-ubuntu32  
+	$ sudo cp -R /mnt/mate-ubuntu32/* /srv/rpiboot/mate-ubuntu/16.04/i386
+	$ sudo cp -R /mnt/mate-ubuntu32/.* /srv/rpiboot/mate-ubuntu/16.04/i386
+
+	# Add 64 bits Live CD files
+	$ sudo mkdir -p /mnt/mate-ubuntu64
+	$ sudo mount -o loop ~/ubuntu-mate-16.04.1-desktop-amd64.iso /mnt/mate-ubuntu64
+	$ sudo cp -R /mnt/mate-ubuntu64/* /srv/rpiboot/mate-ubuntu/16.04/amd64
+	$ sudo cp -R /mnt/mate-ubuntu64/.* /srv/rpiboot/mate-ubuntu/16.04/amd64
+
+	# Update kernel files
+	$ sudo /opt/pxe-scripts/update-kernel-files.sh
+
 On client:
 
 	Access BIOS menu by using F12, F2, ...
