@@ -7,13 +7,13 @@ if [ "$(whoami)" != 'root' ]; then
         exit 1;
 fi
 
-configure-static-ip.sh
+/opt/pxe-scripts/configure-static-ip.sh
 
 echo 
 echo "Starting services ..."
 echo
 
-sudo systemctl restart isc-dhcp-service
-sudo systemctl restart nfs-kernel-server
-sudo systemctl restart tftpd-hpa
+systemctl restart isc-dhcp-service
+systemctl restart nfs-kernel-server
+systemctl restart tftpd-hpa
 
