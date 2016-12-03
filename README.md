@@ -18,7 +18,7 @@ From a Raspbian installation:
 	$ wget https://.../ubuntu-mate-16.04.1-desktop-i386.iso
 	$ wget https://.../ubuntu-mate-16.04.1-desktop-amd64.iso
 
-	$ sudo /opt/pxe-scripts/mount-iso-disks.sh
+	$ sudo /opt/pxe-scripts/mount-iso-images.sh
 	
 	# Update kernel files
 	$ sudo /opt/pxe-scripts/update-kernel-files.sh
