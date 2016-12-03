@@ -11,5 +11,8 @@
 #
 # By default this script does nothing.
 
+/opt/pxe-scripts/mount-iso-images.sh
+
+/opt/pxe-scripts/launch-pxe.sh    
 
 exit 0
