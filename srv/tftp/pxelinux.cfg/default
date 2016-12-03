@@ -21,10 +21,10 @@ MENU TITLE RPI-Boot
 
 LABEL 1 Install Mate Ubuntu 16.04 (32-bit) 
         KERNEL mate-ubuntu/16.04/i386/vmlinuz
-        APPEND boot=casper netboot=nfs only-ubiquity nfsroot=192.168.100.1:/srv/rpiboot/mate-ubuntu/16.04/i386 initrd=mate-ubuntu/16.04/i386/initrd.lz
+        APPEND boot=casper netboot=nfs only-ubiquity nfsroot=192.168.100.1:/srv/iso/mate-ubuntu/16.04/i386 initrd=mate-ubuntu/16.04/i386/initrd.lz
 
 LABEL 2 Install Mate Ubuntu 16.04 (64-bit) 
         KERNEL mate-ubuntu/16.04/amd64/vmlinuz.efi
-        APPEND boot=casper netboot=nfs only-ubiquity nfsroot=192.168.100.1:/srv/rpiboot/mate-ubuntu/16.04/amd64 initrd=mate-ubuntu/16.04/amd64/initrd.lz
+        APPEND boot=casper netboot=nfs only-ubiquity nfsroot=192.168.100.1:/srv/iso/mate-ubuntu/16.04/amd64 initrd=mate-ubuntu/16.04/amd64/initrd.lz
 
 
