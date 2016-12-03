@@ -4,31 +4,27 @@ Simple PXE configuration to boot a Live CD over network.
 
 ## Usage
 
-From a Ubuntu 16.04 server installation:
+From a Raspbian installation:
 
 	# Clone repo and install dependencies
 	$ git clone https://github.com/remipassmoilesel/mate-ubuntu-pxe
 	$ sudo mate-ubuntu-pxe/opt/install-dependencies.sh
 
-	# Install PXE bootloader
+	# Install PXE bootloader and scripts
 	$ sudo cp -R mate-ubuntu-pxe/* /
-	$ sudo /opt/pxe-scripts/install-dependencies.sh 
-	$ sudo /opt/pxe-scripts/launch-pxe.sh
 
-	# Add 32 bits Live CD files
-	$ sudo mkdir -p /mnt/mate-ubuntu32 
-	$ sudo mount -o loop ~/ubuntu-mate-16.04.1-desktop-i386.iso /mnt/mate-ubuntu32  
-	$ sudo cp -R /mnt/mate-ubuntu32/* /srv/rpiboot/mate-ubuntu/16.04/i386
-	$ sudo cp -R /mnt/mate-ubuntu32/.* /srv/rpiboot/mate-ubuntu/16.04/i386
+	# Add Ubuntu Mate live CDs
+	$ cd /opt/pxe-iso/
+	$ wget https://.../ubuntu-mate-16.04.1-desktop-i386.iso
+	$ wget https://.../ubuntu-mate-16.04.1-desktop-amd64.iso
 
-	# Add 64 bits Live CD files
-	$ sudo mkdir -p /mnt/mate-ubuntu64
-	$ sudo mount -o loop ~/ubuntu-mate-16.04.1-desktop-amd64.iso /mnt/mate-ubuntu64
-	$ sudo cp -R /mnt/mate-ubuntu64/* /srv/rpiboot/mate-ubuntu/16.04/amd64
-	$ sudo cp -R /mnt/mate-ubuntu64/.* /srv/rpiboot/mate-ubuntu/16.04/amd64
-
+	$ sudo /opt/pxe-scripts/mount-iso-disks.sh
+	
 	# Update kernel files
 	$ sudo /opt/pxe-scripts/update-kernel-files.sh
+
+	# Mount all and launch
+	$ sudo /opt/pxe-scripts/launch-pxe.sh
 
 On client:
 
